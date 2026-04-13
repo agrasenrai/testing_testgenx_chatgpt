@@ -1,0 +1,227 @@
+[
+  {
+    "tc_id": "TC-HEALTH-001",
+    "purpose": "Verify the ability to record a new medication order in the CPOE system",
+    "priority": "HIGH",
+    "classification": "functional",
+    "preconditions": [
+      "User is logged into the CPOE system",
+      "Patient record is selected and active"
+    ],
+    "dependencies": [],
+    "inputs": {
+      "medication_name": "Amoxicillin",
+      "dosage": "500mg",
+      "frequency": "Twice daily"
+    },
+    "steps": [
+      "1. Navigate to the medication order entry screen",
+      "2. Enter the medication name, dosage, and frequency",
+      "3. Save the medication order"
+    ],
+    "expected_result": "The medication order is successfully recorded and displayed in the patient's medication list",
+    "suspension_criteria": "System fails to save the medication order or displays an error",
+    "postconditions": "Medication order is visible in the patient's active medication list",
+    "source_requirement": "Enable a user to record, change, and access medication orders",
+    "rule_id": "RULE-001",
+    "scenario_id": "SC-001",
+    "strategy": "CLINICAL_VALIDATION"
+  },
+  {
+    "tc_id": "TC-HEALTH-002",
+    "purpose": "Verify boundary validation for medication dosage input",
+    "priority": "HIGH",
+    "classification": "boundary_below",
+    "preconditions": [
+      "User is logged into the CPOE system",
+      "Patient record is selected and active"
+    ],
+    "dependencies": [],
+    "inputs": {
+      "medication_name": "Ibuprofen",
+      "dosage": "0mg",
+      "frequency": "Once daily"
+    },
+    "steps": [
+      "1. Navigate to the medication order entry screen",
+      "2. Enter the medication name, dosage, and frequency",
+      "3. Attempt to save the medication order"
+    ],
+    "expected_result": "System displays an error message indicating invalid dosage value",
+    "suspension_criteria": "System allows saving of invalid dosage value",
+    "postconditions": "Medication order is not saved",
+    "source_requirement": "Enable a user to record, change, and access medication orders",
+    "rule_id": "RULE-002",
+    "scenario_id": "SC-002",
+    "strategy": "BVA"
+  },
+  {
+    "tc_id": "TC-HEALTH-003",
+    "purpose": "Verify the ability to record a laboratory order in the CPOE system",
+    "priority": "HIGH",
+    "classification": "functional",
+    "preconditions": [
+      "User is logged into the CPOE system",
+      "Patient record is selected and active"
+    ],
+    "dependencies": [],
+    "inputs": {
+      "test_name": "Complete Blood Count",
+      "priority": "Routine"
+    },
+    "steps": [
+      "1. Navigate to the laboratory order entry screen",
+      "2. Enter the test name and priority",
+      "3. Save the laboratory order"
+    ],
+    "expected_result": "The laboratory order is successfully recorded and displayed in the patient's laboratory order list",
+    "suspension_criteria": "System fails to save the laboratory order or displays an error",
+    "postconditions": "Laboratory order is visible in the patient's active laboratory order list",
+    "source_requirement": "Enable a user to record, change, and access laboratory orders",
+    "rule_id": "RULE-003",
+    "scenario_id": "SC-003",
+    "strategy": "CLINICAL_VALIDATION"
+  },
+  {
+    "tc_id": "TC-HEALTH-004",
+    "purpose": "Verify state transition for updating a diagnostic imaging order",
+    "priority": "MEDIUM",
+    "classification": "state_transition",
+    "preconditions": [
+      "User is logged into the CPOE system",
+      "Patient record is selected and active",
+      "Existing diagnostic imaging order is present"
+    ],
+    "dependencies": [],
+    "inputs": {
+      "order_id": "IMG12345",
+      "new_status": "Cancelled"
+    },
+    "steps": [
+      "1. Navigate to the diagnostic imaging order list",
+      "2. Select an existing order",
+      "3. Change the status to 'Cancelled'",
+      "4. Save the changes"
+    ],
+    "expected_result": "The diagnostic imaging order status is updated to 'Cancelled' and reflected in the system",
+    "suspension_criteria": "System fails to update the order status or displays an error",
+    "postconditions": "Diagnostic imaging order status is updated to 'Cancelled'",
+    "source_requirement": "Enable a user to record, change, and access diagnostic imaging orders",
+    "rule_id": "RULE-004",
+    "scenario_id": "SC-004",
+    "strategy": "STATE_TRANSITION"
+  },
+  {
+    "tc_id": "TC-HEALTH-005",
+    "purpose": "Verify temporal behavior of drug-drug interaction checks",
+    "priority": "HIGH",
+    "classification": "temporal",
+    "preconditions": [
+      "User is logged into the CPOE system",
+      "Patient record is selected and active",
+      "Patient has an active medication order for Warfarin"
+    ],
+    "dependencies": [],
+    "inputs": {
+      "new_medication": "Aspirin",
+      "dosage": "81mg",
+      "frequency": "Once daily"
+    },
+    "steps": [
+      "1. Navigate to the medication order entry screen",
+      "2. Enter the new medication name, dosage, and frequency",
+      "3. Attempt to save the new medication order"
+    ],
+    "expected_result": "System displays a drug-drug interaction warning for Warfarin and Aspirin",
+    "suspension_criteria": "System fails to display a drug-drug interaction warning",
+    "postconditions": "New medication order is not saved",
+    "source_requirement": "Interventions must automatically indicate drug-drug contraindications based on the patient's medication list",
+    "rule_id": "RULE-005",
+    "scenario_id": "SC-005",
+    "strategy": "TEMPORAL"
+  },
+  {
+    "tc_id": "TC-HEALTH-006",
+    "purpose": "Verify the ability to record patient demographic data",
+    "priority": "HIGH",
+    "classification": "functional",
+    "preconditions": [
+      "User is logged into the system",
+      "Patient record is selected and active"
+    ],
+    "dependencies": [],
+    "inputs": {
+      "race": "Asian",
+      "ethnicity": "Non-Hispanic",
+      "preferred_language": "English",
+      "sex": "Female",
+      "date_of_birth": "1990-01-01"
+    },
+    "steps": [
+      "1. Navigate to the demographics entry screen",
+      "2. Enter the patient's race, ethnicity, preferred language, sex, and date of birth",
+      "3. Save the demographic information"
+    ],
+    "expected_result": "Patient demographic data is successfully recorded and displayed in the patient's profile",
+    "suspension_criteria": "System fails to save the demographic data or displays an error",
+    "postconditions": "Demographic data is visible in the patient's profile",
+    "source_requirement": "Enable a user to record, change, and access patient demographic data including race, ethnicity, preferred language, sex, and date of birth",
+    "rule_id": "RULE-006",
+    "scenario_id": "SC-006",
+    "strategy": "CLINICAL_VALIDATION"
+  },
+  {
+    "tc_id": "TC-HEALTH-007",
+    "purpose": "Verify decision table logic for drug formulary checks",
+    "priority": "MEDIUM",
+    "classification": "decision_table",
+    "preconditions": [
+      "User is logged into the CPOE system",
+      "Patient record is selected and active"
+    ],
+    "dependencies": [],
+    "inputs": {
+      "medication_name": "Lisinopril",
+      "patient_insurance": "Plan A"
+    },
+    "steps": [
+      "1. Navigate to the medication order entry screen",
+      "2. Enter the medication name and patient insurance details",
+      "3. Attempt to save the medication order"
+    ],
+    "expected_result": "System checks the drug formulary for the patient's insurance plan and displays whether the medication is covered",
+    "suspension_criteria": "System fails to check the drug formulary or displays incorrect information",
+    "postconditions": "Medication order is saved only if the drug is covered by the formulary",
+    "source_requirement": "Automatically check whether a drug formulary exists for a given patient and medication",
+    "rule_id": "RULE-007",
+    "scenario_id": "SC-007",
+    "strategy": "DECISION_TABLE"
+  },
+  {
+    "tc_id": "TC-HEALTH-008",
+    "purpose": "Verify the ability to record a patient's active problem list",
+    "priority": "HIGH",
+    "classification": "functional",
+    "preconditions": [
+      "User is logged into the system",
+      "Patient record is selected and active"
+    ],
+    "dependencies": [],
+    "inputs": {
+      "problem_name": "Hypertension",
+      "status": "Active"
+    },
+    "steps": [
+      "1. Navigate to the problem list entry screen",
+      "2. Enter the problem name and status",
+      "3. Save the problem to the list"
+    ],
+    "expected_result": "The problem is successfully recorded and displayed in the patient's active problem list",
+    "suspension_criteria": "System fails to save the problem or displays an error",
+    "postconditions": "Problem is visible in the patient's active problem list",
+    "source_requirement": "Enable a user to record, change, and access a patient's active problem list",
+    "rule_id": "RULE-008",
+    "scenario_id": "SC-008",
+    "strategy": "CLINICAL_VALIDATION"
+  }
+]
