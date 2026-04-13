@@ -1,0 +1,373 @@
+## Criterion ID: 170.315(a)(1)
+Title: Computerized provider order entry (CPOE) - medications
+Source Files:
+- CCG: [1] 2015 Edition CCGs 170.315a1
+- Conformance Method: [61] 2015 Edition Conformance Method 170.315a1
+- Test Procedure: Not present in extracted set for this criterion ID
+
+Normative Requirement (Canonical Text):
+- Enable a user to record, change, and access medication orders.
+- Optional: include a reason-for-order field.
+
+Sub-Requirements:
+1. Enable record, change, and access of medication orders.
+2. Optional reason-for-order field.
+
+Optionality:
+- Required: 1
+- Optional: 2
+
+Conditions/Scope:
+- Setting: Both ambulatory and inpatient unless otherwise constrained by product scope.
+
+Standards/Citations:
+- Citation tokens in source are partially redacted in extraction (`§ . (a)()`).
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders
+
+Traceability:
+- Original extracted block IDs: [1], [61]
+
+---
+
+## Criterion ID: 170.315(a)(2)
+Title: Computerized provider order entry (CPOE) - laboratory
+Source Files:
+- CCG: [8] 2015 Edition CCGs 170.315a2
+- Conformance Method: [65] 2015 Edition Conformance Method 170.315a2
+- Test Procedure: Not present in extracted set for this criterion ID
+
+Normative Requirement (Canonical Text):
+- Enable a user to record, change, and access laboratory orders.
+- Optional: include a reason-for-order field.
+
+Sub-Requirements:
+1. Enable record, change, and access of laboratory orders.
+2. Optional reason-for-order field.
+
+Optionality:
+- Required: 1
+- Optional: 2
+
+Conditions/Scope:
+- Setting: Both ambulatory and inpatient unless otherwise constrained by product scope.
+
+Standards/Citations:
+- Citation tokens in source are partially redacted in extraction (`§ . (a)()`).
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders
+
+Traceability:
+- Original extracted block IDs: [8], [65]
+
+---
+
+## Criterion ID: 170.315(a)(3)
+Title: Computerized provider order entry (CPOE) - diagnostic imaging
+Source Files:
+- CCG: [9] 2015 Edition CCGs 170.315a3
+- Conformance Method: [66] 2015 Edition Conformance Method 170.315a3
+- Test Procedure: Not present in extracted set for this criterion ID
+
+Normative Requirement (Canonical Text):
+- Enable a user to record, change, and access diagnostic imaging orders.
+- Optional: include a reason-for-order field.
+
+Sub-Requirements:
+1. Enable record, change, and access of diagnostic imaging orders.
+2. Optional reason-for-order field.
+
+Optionality:
+- Required: 1
+- Optional: 2
+
+Conditions/Scope:
+- Setting: Both ambulatory and inpatient unless otherwise constrained by product scope.
+
+Standards/Citations:
+- Citation tokens in source are partially redacted in extraction (`§ . (a)()`).
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders
+
+Traceability:
+- Original extracted block IDs: [9], [66]
+
+---
+
+## Criterion ID: 170.315(a)(4)
+Title: Drug-drug, drug-allergy interaction checks for CPOE
+Source Files:
+- CCG: [10] 2015 Edition CCGs 170.315a4
+- Conformance Method: [67] 2015 Edition Conformance Method 170.315a4
+- Test Procedure: Not present in extracted set for this criterion ID
+
+Normative Requirement (Canonical Text):
+- Before a medication order is completed and acted on during CPOE, interventions must automatically indicate drug-drug and drug-allergy contraindications based on the patient's medication list and medication allergy list.
+- Enable adjustment of severity levels for drug-drug interventions.
+- Limit severity-level adjustment to either a specific set of identified users or a system administrative function.
+
+Sub-Requirements:
+1. Automatic contraindication interventions before completion/action.
+2. Severity level adjustment capability for drug-drug checks.
+3. Restriction of adjustment capability to authorized scope.
+
+Optionality:
+- Required: 1, 2, 3
+- Optional: None
+
+Conditions/Scope:
+- Trigger point: Prior to order completion/action in CPOE workflow.
+
+Standards/Citations:
+- Citation tokens in source are partially redacted in extraction (`§ . (a)()`).
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders
+
+Traceability:
+- Original extracted block IDs: [10], [67]
+
+---
+
+## Criterion ID: 170.315(a)(5)
+Title: Demographics
+Source Files:
+- CCG: [11] 2015 Edition CCGs 170.315a5
+- Conformance Method: [68] 2015 Edition Conformance Method 170.315a5
+- Test Procedure: Not present in extracted set for this criterion ID
+
+Normative Requirement (Canonical Text):
+- Enable a user to record, change, and access patient demographic data including race, ethnicity, preferred language, sex, sexual orientation, gender identity, and date of birth.
+- For race and ethnicity, support recording each value, decline-to-specify, and aggregation to required categories.
+- For preferred language, support recording and decline-to-specify.
+- For sex, sexual orientation, and gender identity, support recording according to referenced standards; for sexual orientation and gender identity include decline-to-specify.
+- In inpatient settings, enable recording/changing/accessing preliminary cause of death and date of death when mortality occurs.
+
+Sub-Requirements:
+1. Core demographic capture and access.
+2. Race and ethnicity detailed capture plus aggregation.
+3. Preferred language capture plus decline support.
+4. Sex, sexual orientation, and gender identity capture.
+5. Inpatient mortality data handling.
+
+Optionality:
+- Required: 1, 2, 3, 4, 5
+- Optional: None
+
+Conditions/Scope:
+- Inpatient-only branch applies to mortality data requirement.
+
+Standards/Citations:
+- Referenced standards are present as redacted placeholders (for example `§ .(f)()`, `§ .(g)()`, `§ .(n)()`, `§ .(o)()`).
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders
+
+Traceability:
+- Original extracted block IDs: [11], [68]
+
+---
+
+## Criterion ID: 170.315(a)(6)
+Title: Problem list
+Source Files:
+- CCG: [12] 2015 Edition CCGs 170.315a6
+- Conformance Method: Not present in extracted set for this criterion ID
+- Test Procedure: [74] 2015 Edition Test Procedure 170.315a6
+
+Normative Requirement (Canonical Text):
+- Enable a user to record, change, and access a patient's active problem list.
+- Ambulatory setting: support over multiple encounters, according to the referenced standard version.
+- Inpatient setting: support for the duration of an entire hospitalization, according to the referenced standard version.
+
+Sub-Requirements:
+1. Active problem list record/change/access.
+2. Ambulatory multi-encounter continuity.
+3. Inpatient hospitalization-duration continuity.
+
+Optionality:
+- Required: 1, 2, 3
+- Optional: None
+
+Conditions/Scope:
+- Different continuity expectations for ambulatory vs inpatient settings.
+
+Standards/Citations:
+- Referenced standard appears as redacted placeholder (`§.(a)()`).
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders
+
+Traceability:
+- Original extracted block IDs: [12], [74]
+
+---
+
+## Criterion ID: 170.315(a)(7)
+Title: Medication list
+Source Files:
+- CCG: [13] 2015 Edition CCGs 170.315a7
+- Conformance Method: Not present in extracted set for this criterion ID
+- Test Procedure: [75] 2015 Edition Test Procedure 170.315a7
+
+Normative Requirement (Canonical Text):
+- Enable a user to record, change, and access a patient's active medication list and medication history.
+- Ambulatory setting: support over multiple encounters.
+- Inpatient setting: support for the duration of an entire hospitalization.
+
+Sub-Requirements:
+1. Active medication list and history record/change/access.
+2. Ambulatory multi-encounter continuity.
+3. Inpatient hospitalization-duration continuity.
+
+Optionality:
+- Required: 1, 2, 3
+- Optional: None
+
+Conditions/Scope:
+- Different continuity expectations for ambulatory vs inpatient settings.
+
+Standards/Citations:
+- No additional explicit standards listed in the extracted requirement text.
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders in heading only
+
+Traceability:
+- Original extracted block IDs: [13], [75]
+
+---
+
+## Criterion ID: 170.315(a)(8)
+Title: Medication allergy list
+Source Files:
+- CCG: [14] 2015 Edition CCGs 170.315a8
+- Conformance Method: Not present in extracted set for this criterion ID
+- Test Procedure: [76] 2015 Edition Test Procedure 170.315a8
+
+Normative Requirement (Canonical Text):
+- Enable a user to record, change, and access a patient's active medication allergy list and medication allergy history.
+- Ambulatory setting: support over multiple encounters.
+- Inpatient setting: support for the duration of an entire hospitalization.
+
+Sub-Requirements:
+1. Active medication allergy list and history record/change/access.
+2. Ambulatory multi-encounter continuity.
+3. Inpatient hospitalization-duration continuity.
+
+Optionality:
+- Required: 1, 2, 3
+- Optional: None
+
+Conditions/Scope:
+- Different continuity expectations for ambulatory vs inpatient settings.
+
+Standards/Citations:
+- No additional explicit standards listed in the extracted requirement text.
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders in heading only
+
+Traceability:
+- Original extracted block IDs: [14], [76]
+
+---
+
+## Criterion ID: 170.315(a)(9)
+Title: Clinical decision support (CDS)
+Source Files:
+- CCG: [15] 2015 Edition CCGs 170.315a9
+- Conformance Method: [69] 2015 Edition Conformance Method 170.315a9
+- Test Procedure: Not present in extracted set for this criterion ID
+
+Normative Requirement (Canonical Text):
+- Interventions must occur while a user is interacting with technology.
+- Enable configuration of interventions and reference resources by a limited set of identified users, role-based.
+- Enable interventions based on specified data (problem list, medication list, medication allergy list, at least one demographic, laboratory tests, vital signs), including when such data is incorporated via transition of care/referral summaries.
+- Enable a limited set of identified users to activate evidence-based CDS interventions beyond drug-drug/drug-allergy checks, based on each and at least one combination of the specified data.
+- Enable linked referential CDS identification according to at least one referenced standard and based on required data combinations.
+- Enable user review of source attributes for CDS resources (bibliographic citation where applicable, developer, funding source, and release/revision date details per requirement branch).
+
+Sub-Requirements:
+1. CDS interaction timing.
+2. Role-based CDS configuration.
+3. Data-driven CDS trigger logic.
+4. Activation of evidence-based interventions.
+5. Linked referential CDS behavior.
+6. Source attribute transparency.
+
+Optionality:
+- Required: 1, 2, 3, 4, 5, 6
+- Optional: None
+
+Conditions/Scope:
+- Identified-user limitation applies to configuration and activation actions.
+- Transition-of-care incorporation scenario explicitly in scope.
+
+Standards/Citations:
+- Referenced standards are present as redacted placeholders (for example `§.(b)()` and cross-references to `§ .(b)()(iii)(D)`).
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders
+
+Traceability:
+- Original extracted block IDs: [15], [69]
+
+---
+
+## Criterion ID: 170.315(a)(10)
+Title: Drug-formulary and preferred drug list checks
+Source Files:
+- CCG: [2] 2015 Edition CCGs 170.315a10
+- Conformance Method: Not present in extracted set for this criterion ID
+- Test Procedure: [71] 2015 Edition Test Procedure 170.315a10
+
+Normative Requirement (Canonical Text):
+- To satisfy this criterion, the technology must meet one of the following requirement branches:
+- Branch 1: Automatically check whether a drug formulary exists for a given patient and medication.
+- Branch 2: Automatically check whether a preferred drug list exists for a given patient and medication.
+
+Sub-Requirements:
+1. One-of requirement structure (branching compliance).
+2. Drug formulary check branch.
+3. Preferred drug list check branch.
+
+Optionality:
+- Required: 1
+- Conditional/Alternative: 2 or 3 (one branch required)
+- Optional: None
+
+Conditions/Scope:
+- Compliance model is disjunctive (either branch satisfies criterion).
+
+Standards/Citations:
+- Citation tokens in source are partially redacted in extraction (`§ . (a)()`).
+
+Quality Flags:
+- OCR-fixed: No
+- Header/footer removed: Yes
+- Missing tokens: Section citation placeholders
+
+Traceability:
+- Original extracted block IDs: [2], [71]

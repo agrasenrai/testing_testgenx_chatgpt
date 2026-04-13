@@ -1,0 +1,237 @@
+[
+  {
+    "tc_id": "TC-HEALTH-001",
+    "purpose": "Verify user can record, change, and access a medication order in CPOE",
+    "priority": "HIGH",
+    "classification": "functional",
+    "preconditions": [
+      "User is authenticated with ordering privileges",
+      "Patient record is available and active"
+    ],
+    "dependencies": [
+      "Medication master data loaded"
+    ],
+    "inputs": {
+      "medication_name": "Atorvastatin",
+      "dose": "20mg",
+      "frequency": "Once daily",
+      "route": "Oral"
+    },
+    "steps": [
+      "1. Navigate to the patient's medication order entry screen",
+      "2. Enter medication details and submit the order",
+      "3. Change the order (e.g., adjust dose to 40mg)",
+      "4. Access the order to view current details"
+    ],
+    "expected_result": "Medication order is recorded, updated, and accessible with correct details",
+    "suspension_criteria": "System fails to save or retrieve the medication order, or displays incorrect data",
+    "postconditions": "Medication order is present in the patient's active medication list with updated details",
+    "source_requirement": "Enable a user to record, change, and access medication orders.",
+    "rule_id": "RULE-001",
+    "scenario_id": "SC-001",
+    "strategy": "BVA"
+  },
+  {
+    "tc_id": "TC-HEALTH-002",
+    "purpose": "Verify system automatically checks for drug-drug and drug-allergy contraindications before completing a medication order",
+    "priority": "HIGH",
+    "classification": "functional",
+    "preconditions": [
+      "Patient has an active medication list and medication allergy list",
+      "User is authenticated and authorized to place orders"
+    ],
+    "dependencies": [
+      "Drug interaction database is up to date"
+    ],
+    "inputs": {
+      "medication_order": "Amoxicillin",
+      "known_allergy": "Penicillin"
+    },
+    "steps": [
+      "1. Attempt to place an order for Amoxicillin for a patient with a Penicillin allergy",
+      "2. Proceed to complete the order"
+    ],
+    "expected_result": "System displays an automatic intervention indicating a drug-allergy contraindication before order completion",
+    "suspension_criteria": "No contraindication warning is presented or system allows order completion without intervention",
+    "postconditions": "Order is not completed unless user acknowledges and overrides the warning (if permitted)",
+    "source_requirement": "Before a medication order is completed and acted on during CPOE, interventions must automatically indicate drug-drug and drug-allergy contraindications based on the patient's medication list and medication allergy list.",
+    "rule_id": "RULE-002",
+    "scenario_id": "SC-002",
+    "strategy": "STATE_TRANSITION"
+  },
+  {
+    "tc_id": "TC-HEALTH-003",
+    "purpose": "Verify user can record, change, and access laboratory orders in CPOE",
+    "priority": "HIGH",
+    "classification": "functional",
+    "preconditions": [
+      "User is authenticated with ordering privileges",
+      "Patient record is available and active"
+    ],
+    "dependencies": [
+      "Laboratory test catalog is loaded"
+    ],
+    "inputs": {
+      "lab_test": "Complete Blood Count",
+      "priority": "Routine"
+    },
+    "steps": [
+      "1. Navigate to the patient's laboratory order entry screen",
+      "2. Enter laboratory order details and submit",
+      "3. Change the order (e.g., change priority to STAT)",
+      "4. Access the order to view current details"
+    ],
+    "expected_result": "Laboratory order is recorded, updated, and accessible with correct details",
+    "suspension_criteria": "System fails to save or retrieve the laboratory order, or displays incorrect data",
+    "postconditions": "Laboratory order is present in the patient's active order list with updated details",
+    "source_requirement": "Enable a user to record, change, and access laboratory orders.",
+    "rule_id": "RULE-003",
+    "scenario_id": "SC-003",
+    "strategy": "BVA"
+  },
+  {
+    "tc_id": "TC-HEALTH-004",
+    "purpose": "Verify that only authorized users can adjust severity levels for drug-drug interaction interventions",
+    "priority": "MEDIUM",
+    "classification": "security/role-based",
+    "preconditions": [
+      "User is authenticated as a non-administrator",
+      "System has drug-drug interaction severity adjustment feature enabled"
+    ],
+    "dependencies": [
+      "User roles and permissions configured"
+    ],
+    "inputs": {
+      "user_role": "Clinician",
+      "interaction_severity": "High"
+    },
+    "steps": [
+      "1. Attempt to access the drug-drug interaction severity adjustment interface",
+      "2. Attempt to change severity level"
+    ],
+    "expected_result": "System denies access to severity adjustment for non-authorized users",
+    "suspension_criteria": "Non-authorized user is able to adjust severity levels",
+    "postconditions": "Severity levels remain unchanged unless adjusted by an authorized user",
+    "source_requirement": "Limit severity-level adjustment to either a specific set of identified users or a system administrative function.",
+    "rule_id": "RULE-004",
+    "scenario_id": "SC-004",
+    "strategy": "DECISION_TABLE"
+  },
+  {
+    "tc_id": "TC-HEALTH-005",
+    "purpose": "Verify demographic data can be recorded, changed, and accessed, including decline-to-specify options",
+    "priority": "HIGH",
+    "classification": "functional",
+    "preconditions": [
+      "User is authenticated with demographic entry privileges",
+      "Patient record is available"
+    ],
+    "dependencies": [
+      "Demographic value sets loaded"
+    ],
+    "inputs": {
+      "race": "Decline to specify",
+      "ethnicity": "Decline to specify",
+      "preferred_language": "Decline to specify",
+      "sex": "Female",
+      "sexual_orientation": "Decline to specify",
+      "gender_identity": "Decline to specify",
+      "date_of_birth": "1980-01-01"
+    },
+    "steps": [
+      "1. Navigate to the patient's demographic entry screen",
+      "2. Enter demographic data with decline-to-specify where applicable",
+      "3. Save and access the demographic data"
+    ],
+    "expected_result": "Demographic data including decline-to-specify values are saved and accessible as entered",
+    "suspension_criteria": "System fails to save or retrieve demographic data, or decline-to-specify is not supported",
+    "postconditions": "Patient demographic record reflects entered and declined values",
+    "source_requirement": "Enable a user to record, change, and access patient demographic data including race, ethnicity, preferred language, sex, sexual orientation, gender identity, and date of birth.",
+    "rule_id": "RULE-005",
+    "scenario_id": "SC-005",
+    "strategy": "EP"
+  },
+  {
+    "tc_id": "TC-HEALTH-006",
+    "purpose": "Verify active problem list continuity across multiple ambulatory encounters",
+    "priority": "HIGH",
+    "classification": "temporal",
+    "preconditions": [
+      "Patient has at least two ambulatory encounters",
+      "User is authenticated with problem list privileges"
+    ],
+    "dependencies": [
+      "Problem list module enabled"
+    ],
+    "inputs": {
+      "problem_1": "Hypertension",
+      "problem_2": "Diabetes Mellitus"
+    },
+    "steps": [
+      "1. Record 'Hypertension' in the first encounter",
+      "2. Record 'Diabetes Mellitus' in the second encounter",
+      "3. Access the problem list in the second encounter"
+    ],
+    "expected_result": "Problem list includes both 'Hypertension' and 'Diabetes Mellitus' in the second encounter",
+    "suspension_criteria": "Problem list does not persist across encounters or data is lost",
+    "postconditions": "Problem list reflects all active problems across encounters",
+    "source_requirement": "Ambulatory setting: support over multiple encounters, according to the referenced standard version.",
+    "rule_id": "RULE-006",
+    "scenario_id": "SC-006",
+    "strategy": "TEMPORAL"
+  },
+  {
+    "tc_id": "TC-HEALTH-007",
+    "purpose": "Verify clinical decision support (CDS) intervention triggers when new medication is ordered and patient has relevant problem list entry",
+    "priority": "HIGH",
+    "classification": "clinical",
+    "preconditions": [
+      "Patient has 'Chronic Kidney Disease' on problem list",
+      "CDS rules for renal dosing are enabled"
+    ],
+    "dependencies": [
+      "CDS knowledge base loaded"
+    ],
+    "inputs": {
+      "medication_order": "Metformin"
+    },
+    "steps": [
+      "1. Place an order for Metformin for a patient with Chronic Kidney Disease",
+      "2. Review CDS intervention presented"
+    ],
+    "expected_result": "CDS intervention is triggered, warning about renal dosing considerations for Metformin",
+    "suspension_criteria": "No CDS intervention is presented for the relevant clinical scenario",
+    "postconditions": "CDS intervention is logged and visible to the ordering provider",
+    "source_requirement": "Enable interventions based on specified data (problem list, medication list, medication allergy list, at least one demographic, laboratory tests, vital signs), including when such data is incorporated via transition of care/referral summaries.",
+    "rule_id": "RULE-007",
+    "scenario_id": "SC-007",
+    "strategy": "CLINICAL_VALIDATION"
+  },
+  {
+    "tc_id": "TC-HEALTH-008",
+    "purpose": "Verify system automatically checks for a drug formulary for a given patient and medication",
+    "priority": "MEDIUM",
+    "classification": "functional",
+    "preconditions": [
+      "Patient has active insurance information",
+      "Formulary data is loaded"
+    ],
+    "dependencies": [
+      "Formulary service integration"
+    ],
+    "inputs": {
+      "medication_order": "Lisinopril"
+    },
+    "steps": [
+      "1. Place an order for Lisinopril for the patient",
+      "2. Observe system response regarding formulary status"
+    ],
+    "expected_result": "System automatically checks and displays whether a drug formulary exists for the patient and medication",
+    "suspension_criteria": "No formulary check is performed or incorrect status is displayed",
+    "postconditions": "Formulary status is recorded in the order details",
+    "source_requirement": "Automatically check whether a drug formulary exists for a given patient and medication.",
+    "rule_id": "RULE-008",
+    "scenario_id": "SC-008",
+    "strategy": "BVA"
+  }
+]
